@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo Game UI</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        background: #0e1013;
+        color: #e6e6e6;
+      }
+      .card {
+        padding: 24px 28px;
+        background: #161a22;
+        border-radius: 12px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      }
+      .muted {
+        color: #9aa3b2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="muted">WebSocket message:</div>
+      <h1 id="log">(connecting...)</h1>
+    </div>
+    <script type="module" src="src/index.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "untitled-game",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build:client": "npm -w @untitled-game/client run build",
+    "build:server": "npm -w @untitled-game/server run build",
+    "run:client": "npm run build:client && npm -w @untitled-game/client run preview",
+    "run:server": "npm run build:server && cd packages/server/dist && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "description": "Monorepo for Untitled Game with client and server workspaces managed by npm.",
+  "devDependencies": {
+    "prettier": "3.6.2",
+    "typescript": "5.6.3"
+  }
+}
