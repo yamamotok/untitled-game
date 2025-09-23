@@ -1,0 +1,12 @@
+{
+  "name": "@untitled-game/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsx --watch src/index.ts",
+    "build": "ncc build src/index.ts -o dist --source-map"
+  }
+}

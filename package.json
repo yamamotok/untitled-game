@@ -2,21 +2,43 @@
   "name": "untitled-game",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "libs/*"
   ],
   "main": "index.js",
   "scripts": {
+    "build:server": "npm -w @untitled-game/ws run build",
+    "build:worker": "npm -w @untitled-game/worker run build",
     "build:client": "npm -w @untitled-game/client run build",
-    "build:server": "npm -w @untitled-game/server run build",
-    "run:client": "npm run build:client && npm -w @untitled-game/client run preview",
-    "run:server": "npm run build:server && cd packages/server/dist && node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:server && npm run build:worker && npm run build:client",
+    "dev:server": "npm -w @untitled-game/ws run dev",
+    "dev:worker": "npm -w @untitled-game/worker run dev",
+    "dev:client": "npm -w @untitled-game/client run dev",
+    "dev": "npm run dev:server && npm run dev:worker && npm run dev:client",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "",
   "description": "Monorepo for Untitled Game with client and server workspaces managed by npm.",
+  "dependencies": {
+    "@untitled-game/worker": "^0.1.0",
+    "redis": "5.8.2",
+    "ulid": "3.0.1",
+    "zod": "4.1.11"
+  },
   "devDependencies": {
+    "@types/node": "22.18.6",
+    "@vercel/ncc": "0.38.4",
+    "eslint": "9.35.0",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "eslint-plugin-unused-imports": "4.1.4",
     "prettier": "3.6.2",
-    "typescript": "5.6.3"
+    "tsx": "4.20.5",
+    "typescript": "5.6.3",
+    "typescript-eslint": "8.44.1"
   }
 }

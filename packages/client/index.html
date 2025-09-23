@@ -7,32 +7,40 @@
     <style>
       html,
       body {
-        height: 100%;
         margin: 0;
         font-family: system-ui, sans-serif;
       }
       body {
-        display: grid;
-        place-items: center;
-        background: #0e1013;
-        color: #e6e6e6;
+        background-color: #000;
+        color: #666;
       }
-      .card {
-        padding: 24px 28px;
-        background: #161a22;
-        border-radius: 12px;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      .screen {
+        display: flex;
+        height: 100lvh;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
       }
-      .muted {
-        color: #9aa3b2;
+      .debug {
+        bottom: 0;
+        font-family: monospace;
+        font-size: 12px;
+        left: 0;
+        padding: 0.4em;
+        position: fixed;
+        width: 100%;
+      }
+      .game-container {
+        aspect-ratio: 1/1;
+        width: 480px;
       }
     </style>
   </head>
   <body>
-    <div class="card">
-      <div class="muted">WebSocket message:</div>
-      <h1 id="log">(connecting...)</h1>
+    <div class="screen">
+      <div id="container" class="game-container"></div>
+      <div id="debug" class="debug"></div>
     </div>
-    <script type="module" src="src/index.ts"></script>
+    <script type="module" src="./src/index.ts"></script>
   </body>
 </html>
