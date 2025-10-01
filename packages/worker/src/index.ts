@@ -22,6 +22,8 @@ async function processCommand() {
   }
 
   const command: { type: string } = JSON.parse(popped);
+  console.log('[worker] Processing command: %s (%d)', command.type, process.pid);
+
   if (isRegisterPlayerCommand(command)) {
     registerPlayer(command);
   } else if (isUnregisterPlayerCommand(command)) {
@@ -35,7 +37,7 @@ async function processCommand() {
 
 const subscriptionClient = await newClient();
 await subscriptionClient.subscribe(NotificationChannelName, (message: string) => {
-  console.log('[worker] Received command: %s (%d)', message, process.pid);
+  console.log('[worker] Received notification: %s (%d)', message, process.pid);
   processCommand();
 });
 
